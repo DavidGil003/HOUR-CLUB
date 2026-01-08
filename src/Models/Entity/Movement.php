@@ -10,9 +10,10 @@ class Movement extends WatchPart
         int $id,
         string $name,
         float $price,
+        string $imageUrl,
         array $specifications
     ) {
-        parent::__construct($id, 'Movement', $name, $price, $specifications, []);
+        parent::__construct($id, 'Movement', $name, $price, $imageUrl, $specifications, []);
     }
 
     public function isCompatibleWith(WatchPart $otherPart): bool

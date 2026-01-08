@@ -4,29 +4,25 @@ declare(strict_types=1);
 
 namespace HorologyHub\Models\Entity;
 
-class CasePart extends WatchPart
+class Hands extends WatchPart
 {
     public function __construct(
         int $id,
         string $name,
         float $price,
         string $imageUrl,
-        array $specifications,
-        array $compatibleMovements
+        array $specifications = [],
+        array $compatibleMovements = []
     ) {
-        parent::__construct($id, 'Case', $name, $price, $imageUrl, $specifications, $compatibleMovements);
+        parent::__construct($id, 'Hands', $name, $price, $imageUrl, $specifications, $compatibleMovements);
     }
 
     public function isCompatibleWith(WatchPart $otherPart): bool
     {
-        if ($otherPart instanceof Dial) {
-            return $otherPart->isCompatibleWith($this); // Delegate to Dial
-        }
-
         if ($otherPart instanceof Movement) {
+            // Check if movement is in compatible list
             return in_array($otherPart->getName(), $this->compatibleMovements);
         }
-
         return true;
     }
 }

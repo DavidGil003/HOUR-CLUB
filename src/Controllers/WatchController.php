@@ -25,4 +25,27 @@ class WatchController
             'watches' => $watches
         ]);
     }
+
+    public function show(): void
+    {
+        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
+        if (!$id) {
+            header('Location: ' . \HorologyHub\Core\View::url('/catalog'));
+            return;
+        }
+
+        $watch = $this->repository->findById($id);
+
+        if (!$watch) {
+            http_response_code(404);
+            View::render('errors/404', ['title' => 'Watch Not Found']); // Ideally create this view
+            return;
+        }
+
+        View::render('watch/show', [
+            'title' => $watch->getBrand() . ' ' . $watch->getModel(),
+            'watch' => $watch
+        ]);
+    }
 }

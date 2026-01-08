@@ -13,6 +13,7 @@ class Watch
         private string $referenceNumber,
         private string $movementType,
         private string $caseMaterial,
+        private string $imageUrl = 'https://placehold.co/400x300?text=Watch+Image',
         private ?string $createdAt = null
     ) {
     }
@@ -40,6 +41,10 @@ class Watch
     public function getCaseMaterial(): string
     {
         return $this->caseMaterial;
+    }
+    public function getImageUrl(): string
+    {
+        return $this->imageUrl;
     }
     public function getCreatedAt(): ?string
     {

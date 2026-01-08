@@ -21,6 +21,16 @@ class Router
     public function dispatch(string $uri, string $method): void
     {
         $uri = parse_url($uri, PHP_URL_PATH);
+        $uri = urldecode($uri); // Decode for spaces, etc.
+
+        // Handle subdirectories
+        $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+        if ($scriptDir !== '/' && strpos($uri, $scriptDir) === 0) {
+            $uri = substr($uri, strlen($scriptDir));
+        }
+        if ($uri === '') {
+            $uri = '/';
+        }
 
         // Simple exact match for now
         if (isset($this->routes[$method][$uri])) {

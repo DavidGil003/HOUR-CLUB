@@ -17,6 +17,7 @@ $router = new HorologyHub\Core\Router();
 $router->get('/', [WatchController::class, 'index']);
 $router->get('/index.php', [WatchController::class, 'index']);
 $router->get('/catalog', [WatchController::class, 'index']);
+$router->get('/watch', [WatchController::class, 'show']);
 
 // Builder Routes
 $router->get('/builder', [HorologyHub\Controllers\BuilderController::class, 'index']);

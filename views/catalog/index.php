@@ -5,6 +5,10 @@
 <div class="grid">
     <?php foreach ($watches as $watch): ?>
         <div class="card">
+            <div style="height: 200px; overflow: hidden; border-radius: 0.25rem; margin-bottom: 1rem;">
+                <img src="<?= htmlspecialchars($watch->getImageUrl()) ?>" alt="<?= htmlspecialchars($watch->getModel()) ?>"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
             <h2>
                 <?= htmlspecialchars($watch->getBrand()) ?>
                 <?= htmlspecialchars($watch->getModel()) ?>
@@ -16,7 +20,7 @@
                 <?= htmlspecialchars($watch->getMovementType() ?? 'N/A') ?>
             </p>
             <div style="margin-top: 1rem;">
-                <a href="/watch?id=<?= $watch->getId() ?>" class="btn">View Details</a>
+                <a href="<?= \HorologyHub\Core\View::url('/watch?id=' . $watch->getId()) ?>" class="btn">View Details</a>
             </div>
         </div>
     <?php endforeach; ?>

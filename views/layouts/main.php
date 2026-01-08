@@ -71,10 +71,11 @@
 <body>
     <nav>
         <div class="container" style="padding: 0; display: flex; align-items: center;">
-            <a href="/" style="font-size: 1.5rem; font-weight: bold;">HorologyHub</a>
-            <a href="/catalog">Catalog</a>
-            <a href="/builder">ModBuilder</a>
-            <a href="/investment">Investment</a>
+            <a href="<?= \HorologyHub\Core\View::url('/') ?>"
+                style="font-size: 1.5rem; font-weight: bold;">HorologyHub</a>
+            <a href="<?= \HorologyHub\Core\View::url('/catalog') ?>">Catalog</a>
+            <a href="<?= \HorologyHub\Core\View::url('/builder') ?>">ModBuilder</a>
+            <a href="<?= \HorologyHub\Core\View::url('/investment') ?>">Investment</a>
         </div>
     </nav>
     <main class="container">

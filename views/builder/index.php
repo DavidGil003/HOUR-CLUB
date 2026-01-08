@@ -7,26 +7,34 @@
     <!-- Dials -->
     <div class="card">
         <h2>1. Select Dial</h2>
-        <select id="dial-select" style="width: 100%; padding: 0.5rem; margin-top: 0.5rem;">
-            <option value="">-- Choose Dial --</option>
+        <div
+            style="margin-bottom: 1rem; height: 200px; background: #0f172a; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 0.5rem;">
+            <img id="dial-preview" src="https://placehold.co/400x300?text=Select+Dial"
+                style="max-width: 100%; max-height: 100%; object-fit: contain;">
+        </div>
+        <select id="dial-select" class="part-select" data-type="dial" style="width: 100%; padding: 0.5rem;">
+            <option value="" data-img="https://placehold.co/400x300?text=Select+Dial">-- Choose Dial --</option>
             <?php foreach ($parts['Dial'] as $part): ?>
-                <option value="<?= $part->getId() ?>">
-                    <?= htmlspecialchars($part->getName()) ?> - €
-                    <?= $part->getPrice() ?>
+                <option value="<?= $part->getId() ?>" data-img="<?= htmlspecialchars($part->getImageUrl()) ?>">
+                    <?= htmlspecialchars($part->getName()) ?> - €<?= $part->getPrice() ?>
                 </option>
             <?php endforeach; ?>
         </select>
     </div>
 
-    <!-- Calls -->
+    <!-- Cases -->
     <div class="card">
         <h2>2. Select Case</h2>
-        <select id="case-select" style="width: 100%; padding: 0.5rem; margin-top: 0.5rem;">
-            <option value="">-- Choose Case --</option>
+        <div
+            style="margin-bottom: 1rem; height: 200px; background: #0f172a; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 0.5rem;">
+            <img id="case-preview" src="https://placehold.co/400x300?text=Select+Case"
+                style="max-width: 100%; max-height: 100%; object-fit: contain;">
+        </div>
+        <select id="case-select" class="part-select" data-type="case" style="width: 100%; padding: 0.5rem;">
+            <option value="" data-img="https://placehold.co/400x300?text=Select+Case">-- Choose Case --</option>
             <?php foreach ($parts['Case'] as $part): ?>
-                <option value="<?= $part->getId() ?>">
-                    <?= htmlspecialchars($part->getName()) ?> - €
-                    <?= $part->getPrice() ?>
+                <option value="<?= $part->getId() ?>" data-img="<?= htmlspecialchars($part->getImageUrl()) ?>">
+                    <?= htmlspecialchars($part->getName()) ?> - €<?= $part->getPrice() ?>
                 </option>
             <?php endforeach; ?>
         </select>
@@ -35,12 +43,52 @@
     <!-- Movements -->
     <div class="card">
         <h2>3. Select Movement</h2>
-        <select id="mvmt-select" style="width: 100%; padding: 0.5rem; margin-top: 0.5rem;">
-            <option value="">-- Choose Movement --</option>
+        <div
+            style="margin-bottom: 1rem; height: 200px; background: #0f172a; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 0.5rem;">
+            <img id="mvmt-preview" src="https://placehold.co/400x300?text=Select+Movement"
+                style="max-width: 100%; max-height: 100%; object-fit: contain;">
+        </div>
+        <select id="mvmt-select" class="part-select" data-type="mvmt" style="width: 100%; padding: 0.5rem;">
+            <option value="" data-img="https://placehold.co/400x300?text=Select+Movement">-- Choose Movement --</option>
             <?php foreach ($parts['Movement'] as $part): ?>
-                <option value="<?= $part->getId() ?>">
-                    <?= htmlspecialchars($part->getName()) ?> - €
-                    <?= $part->getPrice() ?>
+                <option value="<?= $part->getId() ?>" data-img="<?= htmlspecialchars($part->getImageUrl()) ?>">
+                    <?= htmlspecialchars($part->getName()) ?> - €<?= $part->getPrice() ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
+    <!-- Hands -->
+    <div class="card">
+        <h2>4. Select Hands</h2>
+        <div
+            style="margin-bottom: 1rem; height: 200px; background: #0f172a; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 0.5rem;">
+            <img id="hands-preview" src="https://placehold.co/400x300?text=Select+Hands"
+                style="max-width: 100%; max-height: 100%; object-fit: contain;">
+        </div>
+        <select id="hands-select" class="part-select" data-type="hands" style="width: 100%; padding: 0.5rem;">
+            <option value="" data-img="https://placehold.co/400x300?text=Select+Hands">-- Choose Hands --</option>
+            <?php foreach ($parts['Hands'] as $part): ?>
+                <option value="<?= $part->getId() ?>" data-img="<?= htmlspecialchars($part->getImageUrl()) ?>">
+                    <?= htmlspecialchars($part->getName()) ?> - €<?= $part->getPrice() ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
+    <!-- Strap -->
+    <div class="card">
+        <h2>5. Select Strap</h2>
+        <div
+            style="margin-bottom: 1rem; height: 200px; background: #0f172a; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 0.5rem;">
+            <img id="strap-preview" src="https://placehold.co/400x300?text=Select+Strap"
+                style="max-width: 100%; max-height: 100%; object-fit: contain;">
+        </div>
+        <select id="strap-select" class="part-select" data-type="strap" style="width: 100%; padding: 0.5rem;">
+            <option value="" data-img="https://placehold.co/400x300?text=Select+Strap">-- Choose Strap --</option>
+            <?php foreach ($parts['Strap'] as $part): ?>
+                <option value="<?= $part->getId() ?>" data-img="<?= htmlspecialchars($part->getImageUrl()) ?>">
+                    <?= htmlspecialchars($part->getName()) ?> - €<?= $part->getPrice() ?>
                 </option>
             <?php endforeach; ?>
         </select>
@@ -53,20 +101,33 @@
 </div>
 
 <script>
+    // Image Preview Logic
+    document.querySelectorAll('.part-select').forEach(select => {
+        select.addEventListener('change', (e) => {
+            const type = e.target.dataset.type;
+            const option = e.target.options[e.target.selectedIndex];
+            const imgUrl = option.dataset.img;
+            document.getElementById(`${type}-preview`).src = imgUrl;
+        });
+    });
+
+    // Validation Logic
     document.getElementById('validate-btn').addEventListener('click', async () => {
         const dialId = document.getElementById('dial-select').value;
         const caseId = document.getElementById('case-select').value;
         const mvmtId = document.getElementById('mvmt-select').value;
+        const handsId = document.getElementById('hands-select').value;
+        const strapId = document.getElementById('strap-select').value;
 
-        if (!dialId || !caseId || !mvmtId) {
+      if (!dialId || !caseId || !mvmtId || !handsId || !strapId) {
             alert('Please select all parts first.');
             return;
         }
 
-        const res = await fetch('/builder/validate', {
+        const res = await fetch('<?= \HorologyHub\Core\View::url('/builder/validate') ?>', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ dialId, caseId, mvmtId })
+            body: JSON.stringify({ dialId, caseId, mvmtId, handsId, strapId })
         });
 
         const data = await res.json();

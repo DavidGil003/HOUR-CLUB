@@ -10,10 +10,11 @@ class Dial extends WatchPart
         int $id,
         string $name,
         float $price,
+        string $imageUrl,
         array $specifications,
         array $compatibleMovements
     ) {
-        parent::__construct($id, 'Dial', $name, $price, $specifications, $compatibleMovements);
+        parent::__construct($id, 'Dial', $name, $price, $imageUrl, $specifications, $compatibleMovements);
     }
 
     public function isCompatibleWith(WatchPart $otherPart): bool

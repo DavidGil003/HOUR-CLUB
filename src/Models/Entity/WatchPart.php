@@ -11,9 +11,15 @@ abstract class WatchPart
         protected string $partType, // 'Dial', 'Hand', 'Case', 'Movement', 'Bezel'
         protected string $name,
         protected float $price,
+        protected string $imageUrl,
         protected array $specifications,
         protected array $compatibleMovements
     ) {
+    }
+
+    public function getImageUrl(): string
+    {
+        return $this->imageUrl;
     }
 
     public function getId(): int

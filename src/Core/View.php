@@ -18,4 +18,13 @@ class View
 
         require $viewFile;
     }
+
+    public static function url(string $path): string
+    {
+        $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+        if ($scriptDir === '/') {
+            $scriptDir = '';
+        }
+        return $scriptDir . '/' . ltrim($path, '/');
+    }
 }
