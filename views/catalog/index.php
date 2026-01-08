@@ -2,27 +2,22 @@
 
 <h1>Watch Catalog</h1>
 
-<div class="grid">
+<div class="seamless-grid">
     <?php foreach ($watches as $watch): ?>
-        <div class="card">
-            <div style="height: 200px; overflow: hidden; border-radius: 0.25rem; margin-bottom: 1rem;">
+        <a href="<?= \HorologyHub\Core\View::url('/watch?id=' . $watch->getId()) ?>" class="watch-card">
+            <span class="price-badge">€12,450</span> <!-- Mock Dynamic Price -->
+            <div style="height: 220px; overflow: hidden; margin-bottom: 1.5rem;">
                 <img src="<?= htmlspecialchars($watch->getImageUrl()) ?>" alt="<?= htmlspecialchars($watch->getModel()) ?>"
-                    style="width: 100%; height: 100%; object-fit: cover;">
+                    style="width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply;">
             </div>
             <h2>
                 <?= htmlspecialchars($watch->getBrand()) ?>
-                <?= htmlspecialchars($watch->getModel()) ?>
+                <br>
+                <span
+                    style="color: var(--text-primary); font-weight: 300;"><?= htmlspecialchars($watch->getModel()) ?></span>
             </h2>
-            <p><strong>Ref:</strong>
-                <?= htmlspecialchars($watch->getReferenceNumber()) ?>
-            </p>
-            <p><strong>Movement:</strong>
-                <?= htmlspecialchars($watch->getMovementType() ?? 'N/A') ?>
-            </p>
-            <div style="margin-top: 1rem;">
-                <a href="<?= \HorologyHub\Core\View::url('/watch?id=' . $watch->getId()) ?>" class="btn">View Details</a>
-            </div>
-        </div>
+            <p class="ref">REF: <?= htmlspecialchars($watch->getReferenceNumber()) ?></p>
+        </a>
     <?php endforeach; ?>
 </div>
 

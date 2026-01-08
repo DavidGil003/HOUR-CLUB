@@ -1,39 +1,37 @@
 <?php ob_start(); ?>
 
 <div style="margin-top: 2rem;">
-    <a href="<?= \HorologyHub\Core\View::url('/catalog') ?>" class="btn" style="background: #334155;">&larr; Back to
-        Catalog</a>
+    <a href="<?= \HorologyHub\Core\View::url('/catalog') ?>" class="btn"
+        style="background: var(--text-primary); color: var(--bg-primary);">&larr; Back to Catalog</a>
 </div>
 
-<div class="card" style="margin-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap;">
-    <div style="flex: 1; min-width: 300px;">
+<div class="grid"
+    style="margin-top: 3rem; gap: 4rem; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); align-items: start;">
+    <div style="background: #F8FAFC; padding: 2rem;">
         <img src="<?= htmlspecialchars($watch->getImageUrl()) ?>" alt="<?= htmlspecialchars($watch->getModel()) ?>"
-            style="width: 100%; border-radius: 0.5rem; object-fit: cover;">
+            style="width: 100%; object-fit: contain; mix-blend-mode: multiply;">
     </div>
-    <div style="flex: 1; min-width: 300px;">
-        <h1 style="margin-top: 0;">
-            <?= htmlspecialchars($watch->getBrand()) ?>
-            <?= htmlspecialchars($watch->getModel()) ?>
-        </h1>
-        <h3 style="color: #94a3b8;">
-            <?= htmlspecialchars($watch->getReferenceNumber()) ?>
-        </h3>
+    <div>
+        <h1 style="font-size: 2.5rem; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 0.5rem;">
+            <?= htmlspecialchars($watch->getBrand()) ?></h1>
+        <h2 style="font-size: 1.5rem; font-weight: 300; color: var(--text-secondary); margin-bottom: 2rem;">
+            <?= htmlspecialchars($watch->getModel()) ?></h2>
 
-        <div style="margin-top: 2rem;">
-            <p><strong>Movement:</strong>
-                <?= htmlspecialchars($watch->getMovementType()) ?>
-            </p>
-            <p><strong>Case Material:</strong>
-                <?= htmlspecialchars($watch->getCaseMaterial()) ?>
-            </p>
-            <p><strong>Release:</strong>
-                <?= htmlspecialchars($watch->getCreatedAt() ?? 'N/A') ?>
-            </p>
+        <div
+            style="border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 2rem 0; margin-bottom: 2rem;">
+            <p style="margin-bottom: 1rem;"><strong
+                    style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; display: block; margin-bottom: 0.25rem;">Reference</strong>
+                <?= htmlspecialchars($watch->getReferenceNumber()) ?></p>
+            <p style="margin-bottom: 1rem;"><strong
+                    style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; display: block; margin-bottom: 0.25rem;">Movement</strong>
+                <?= htmlspecialchars($watch->getMovementType()) ?></p>
+            <p style="margin-bottom: 1rem;"><strong
+                    style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; display: block; margin-bottom: 0.25rem;">Material</strong>
+                <?= htmlspecialchars($watch->getCaseMaterial()) ?></p>
         </div>
 
-        <div style="margin-top: 3rem;">
-            <button class="btn" style="width: 100%; text-align: center; font-size: 1.2rem;">Add to Collection</button>
-        </div>
+        <button class="btn" style="width: 100%; text-align: center; font-size: 1rem; padding: 1rem;">Add to
+            Collection</button>
     </div>
 </div>
 
